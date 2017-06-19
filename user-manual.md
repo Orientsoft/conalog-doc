@@ -198,7 +198,7 @@ Description: collector usage&source&description；
 
 
 ## 第五章 parser
-parser的功能：因为一个Collector通道会包含多个文件的内容，所以需要Parser进一步分离，然后parser通过脚本把文件中的文本数据转换成结构数据，同一个parser可以同时启动多个实例。
+parser的功能：parser通过调用脚本把文件中的文本数据转换成结构数据，同一个parser可以同时启动多个实例。
 ### 5.1 添加
 1. 点击左上角添加按钮：
 ![](images/addParser.png)
@@ -306,10 +306,31 @@ history作用：保存日志，数据保存时限为7天。
 
 ## 第八章 常用流程
 
-### 8.1 自动执行命令
-1. 添加cert信息；
-2. 添加collector；
+### 8.1 数据采集流程
+1. 添加cert；
+2. 添加 collector；
 3. status里启动并查看结果；
+
+### 8.2 数据采集-解析流程
+1. 添加cert；
+2. 添加collector, 根据需求选择不同的collector类型；<br>
+Active collector 输出数据的redis通道名为 ac\_[collector name]； <br>
+Passive collector 输出数据的redis通道名为 pc\_[collector name]； <br>
+Agent collector 输出数据的redis通道名为 agt_[collector name]；
+3. 添加parser，InputChannel为collector数据输出通道，collector采集的数据则可以进入Parser；
+4. status里启动并查看结果；
+
+### 8.3 外部脚本监控流程
+1. 添加cert；
+2. 添加 Active collector，定时启动外部脚本；
+3. status里启动并查看结果；
+
+### 8.4 状态监控流程
+
+
+
+
+
 
 
 
