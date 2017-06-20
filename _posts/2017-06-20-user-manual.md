@@ -16,8 +16,6 @@ tag: 教程
 conalog是集数据采集，解析，状态管理，日志管理为一体的工具，可以有效的对自编制脚本进行管理和监控，也可以监控orientsoft软件组件的状态,主要模块分为五部分：cert，collector，parser，status，history。
 
 
-<br>
-<br>
  第二章 部署与安装
 ====================================
 
@@ -122,8 +120,6 @@ conalogHost:conalogFrontPort
 ![](/conalog-doc/styles/images/homePage.png)
 
 
-<br>
-<br>
  第三章 cert
 ====================================
 
@@ -169,8 +165,6 @@ cert功能：通过ssh连接登陆虚拟机，随后可以执行Shell命令。
 ![](/conalog-doc/styles/images/checkPassword.png)
 
 
-<br>
-<br>
 第四章 collector
 ====================================
 
@@ -252,8 +246,6 @@ Description: collector usage&source&description；
 ![](/conalog-doc/styles/images/deleteAgentCollectorModal.png)
 
 
-<br>
-<br>
 第五章 parser
 ====================================
 
@@ -296,8 +288,6 @@ Remark：input:... output:{...}   (parser脚本作用描述，输入输出数据
 ![](/conalog-doc/styles/images/deleteParserModal.png)
 
 
-<br>
-<br>
 第六章 status
 ====================================
 
@@ -368,8 +358,6 @@ subscribe redis channel (parser outputChannel);
 ![](/conalog-doc/styles/images/stopParserInstanceModal.png)
 
 
-<br>
-<br>
 第七章 history
 ====================================
 
@@ -385,8 +373,6 @@ history作用：保存日志，数据保存时限为7天。
 ![](/conalog-doc/styles/images/historyContent.png)
 
 
-<br>
-<br>
 第八章 常用流程
 ====================================
 
