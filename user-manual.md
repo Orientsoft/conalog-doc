@@ -2,10 +2,10 @@
 conalog是集数据采集，解析，状态管理，日志管理为一体的工具，可以有效的对自编制脚本进行管理和监控，也可以监控orientsoft软件组件的状态,主要模块分为五部分：cert，collector，parser，status，history。
 ## 第二章 部署与安装
 ### 2.1 环境要求
-Linux版本：<br>
-Node版本：6.9 (LTS)<br>
-Mongo版本：<br>
-Redis版本：<br>
+Linux版本：  
+Node版本：6.9 (LTS)  
+Mongo版本：  
+Redis版本：  
 ### 2.2 前台
 1. 获取conglog-front代码；
 2. 修改/conalog-front/config 目录下的config.js 文件，将conalogHost的值改为虚拟机的IP地址；
@@ -81,8 +81,8 @@ module.exports = config;
 3. 运行npm i命令后遇到缺少模块的问题时，npm install 该模块；
 
 ### 2.5 访问网址
-conalogHost:conalogFrontPort<br>
-如：'192.168.0.244:7527'<br>
+conalogHost:conalogFrontPort  
+如：'192.168.0.244:7527'  
 
 登录界面：（账号：admin 密码：admininitpass）
 ![](images/logIn.png)
@@ -95,11 +95,11 @@ cert功能：通过ssh连接登陆虚拟机，随后可以执行Shell命令。
 ### 3.1 添加
 1. 点击左上角添加按钮：
 ![](images/addCert.png)
-2. 弹出添加框，填写信息：</br>
+2. 弹出添加框，填写信息：  
    填写规范：</br>
-   Host: 192.168.0.244，（虚拟机IP地址）</br>
-   Port：22，（端口号）</br>
-   User：voyager，（虚拟机用户名）</br>
+   Host: 192.168.0.244，（虚拟机IP地址）  
+   Port：22，（端口号）  
+   User：voyager，（虚拟机用户名）  
    Password：welcome1，（虚拟机用户名对应的密码）
 ![](images/addCertModal.png)
 
@@ -127,71 +127,71 @@ cert功能：通过ssh连接登陆虚拟机，随后可以执行Shell命令。
 ## 第四章 collector
 collector作用：实时执行命令，采集数据，分为active collector，passive collector和agent collector，active collector是根据设定的时间间隔执行一次命令，passive collector是执行一次命令并一直保持执行状态，agent collector是在Filebeat把监听的所有日志更新发送到一个统一的通道后，根据通配符规则，把同类型的日志，分发到一个通道中。
 ### 4.1 添加
-1. active collector：</br>
-填写规范：</br>
-Name: 无要求（输出数据的redis通道名默认为 ac_name);</br>
-Type:</br>
-&nbsp; &nbsp; &nbsp; &nbsp;interval : 每间隔一段时间执行一次命令；</br>
-&nbsp; &nbsp; &nbsp; &nbsp;time ：每天定点执行命令；</br>
-&nbsp; &nbsp; &nbsp; &nbsp;oneshot：只执行一次；</br>
-Trigger: 对应type类型设置时间；</br>
-Command: 执行命令；</br>
-Parameter: 参数；</br>
-Host: 虚拟机IP；</br>
-Encoding: 根据电脑系统选择对应的编码；</br>
-Channel: redis/nanomsg;</br>
+1. active collector：  
+填写规范：  
+Name: 无要求（输出数据的redis通道名默认为 ac_name);  
+Type:  
+&nbsp; &nbsp; &nbsp; &nbsp;interval : 每间隔一段时间执行一次命令；  
+&nbsp; &nbsp; &nbsp; &nbsp;time ：每天定点执行命令；  
+&nbsp; &nbsp; &nbsp; &nbsp;oneshot：只执行一次；  
+Trigger: 对应type类型设置时间；  
+Command: 执行命令；  
+Parameter: 参数；  
+Host: 虚拟机IP；  
+Encoding: 根据电脑系统选择对应的编码；  
+Channel: redis/nanomsg;  
 Description: collector usage & source & description；
 ![](images/addActiveCollector.png)
-2. passive collector：</br>
-填写规范：</br>
-Name: 无要求（输出数据的redis通道名默认为 pc_name);</br>
-Type:</br>
-&nbsp; &nbsp; &nbsp; &nbsp;LongScript: 执行用户指定的命令</br>
-&nbsp; &nbsp; &nbsp; &nbsp;File Tail: 直接执行 tail -F 命令</br>
-Command: 执行命令；</br>
-Parameter: 参数；</br>
-Host: 虚拟机IP；</br>
-Encoding: 根据电脑系统选择对应的编码；</br>
-Channel: redis/nanomsg;</br>
+2. passive collector：  
+填写规范：  
+Name: 无要求（输出数据的redis通道名默认为 pc_name);  
+Type:  
+&nbsp; &nbsp; &nbsp; &nbsp;LongScript: 执行用户指定的命令；  
+&nbsp; &nbsp; &nbsp; &nbsp;File Tail: 直接执行 tail -F 命令；  
+Command: 执行命令；  
+Parameter: 参数；  
+Host: 虚拟机IP；  
+Encoding: 根据电脑系统选择对应的编码；  
+Channel: redis/nanomsg;  
 Description: collector usage&source&description；
 ![](images/addPassiveCollector.png)
-3. agent collector<br>
+3. agent collector  
 &nbsp;3.1 点击添加按钮：
 ![](images/addAgentCollector.png)
-&nbsp;3.2 弹出添加框，填写信息：</br>
-&nbsp;&nbsp;&nbsp;填写规范</br>
-&nbsp;&nbsp;&nbsp;Name: 无要求；</br>
-&nbsp;&nbsp;&nbsp;Parameter: 文件名的正则表达式；</br>
-&nbsp;&nbsp;&nbsp;Encoding: 根据电脑系统选择对应的编码；</br>
-&nbsp;&nbsp;&nbsp;Channel: redis/nanomsg;</br>
+&nbsp;3.2 弹出添加框，填写信息：  
+&nbsp;&nbsp;&nbsp;填写规范  
+&nbsp;&nbsp;&nbsp;Name: 无要求 （输出数据的redis通道名默认为 agt_name）；  
+&nbsp;&nbsp;&nbsp;Parameter: 文件名的正则表达式；  
+&nbsp;&nbsp;&nbsp;Encoding: 根据电脑系统选择对应的编码；  
+&nbsp;&nbsp;&nbsp;Channel: redis/nanomsg;  
 &nbsp;&nbsp;&nbsp;Description: collector usage & source & description；
 ![](images/addAgentCollectorContent.png)
 
 ### 4.2 修改
-1. active collector：</br>
+1. active collector：  
    勾选要修改的项，再点击edit按钮，在页面上方即可出现对应的信息，修改之后保存点击save按钮，不保存点击clear按钮；
 ![](images/editActiveCollector.png)
 ![](images/editActiveCollectorContent.png)
-2. passive collector：</br>
+2. passive collector：  
    勾选要修改的项，再点击edit按钮，在页面上方即可出现对应的信息，修改之后保存点击save按钮，不保存点击clear按钮；
 ![](images/editPassiveCollector.png)
 ![](images/editPassiveCollectorContent.png)
-3. agent collector:</br>
+3. agent collector:  
    点击edit按钮，即会弹出修改框，修改之后保存点击确定按钮，不保存点击取消按钮；
 ![](images/editAgentCollector.png)
 ![](images/editAgentCollectorContent.png)
 
 
 ### 4.3 删除
-1. active collector：</br>
+1. active collector：  
    勾选要删除的项，再点击delete按钮，弹出确定框，删除点击确定，不删除点击取消；
 ![](images/editActiveCollector.png)
 ![](images/deleteActiveCollector.png)
-2. passive collector：</br>
+2. passive collector：  
    勾选要删除的项，再点击delete按钮，弹出确定框，删除点击确定，不删除点击取消；
 ![](images/editPassiveCollector.png)
 ![](images/deletePassiveCollector.png)
-3. agent collector:</br>
+3. agent collector:  
    点击delete按钮，弹出确定框，删除点击确定，不删除点击取消；
 ![](images/deleteAgentCollector.png)
 ![](images/deleteAgentCollectorModal.png)
@@ -202,15 +202,15 @@ parser的功能：parser通过调用脚本把文件中的文本数据转换成�
 ### 5.1 添加
 1. 点击左上角添加按钮：
 ![](images/addParser.png)
-2. 弹出添加框，填写内容，所有选项均为必填：</br>
-填写规范：</br>
-Name：esb   (无要求)；</br>
-Path：esb.js   (parser脚本的路径)；</br>
-Parameter：esb=1   (脚本对应的参数)；</br>
-InputChannel：ac\_mobile   (输入数据通道名)；</br>
-OutputChannel：p_esb   (输出数据通道名)；</br>
-InputType：RedisChannel   (RedisChannel/NanomsgQueue);</br>
-OutputType：RedisChannel   (RedisChannel/NanomsgQueue);</br>
+2. 弹出添加框，填写内容，所有选项均为必填：  
+填写规范：  
+Name：esb   (无要求)；  
+Path：esb.js   (parser脚本的路径)；  
+Parameter：esb=1   (脚本对应的参数)；  
+InputChannel：ac\_mobile   (输入数据通道名)；  
+OutputChannel：p_esb   (输出数据通道名)；  
+InputType：RedisChannel   (RedisChannel/NanomsgQueue);  
+OutputType：RedisChannel   (RedisChannel/NanomsgQueue);  
 Remark：input:... output:{...}   (parser脚本作用描述，输入输出数据格式等);
 ![](images/addParserContent.png)
 3. 添加成功：
@@ -242,21 +242,21 @@ status作用：展示active collector，passive collector，agent collector以�
 ![](images/start.png)
 
 #### 6.1.2 查看
-1. 执行成功：</br>
-Exec Count: 执行次数；</br>
-Last Activity Time: 最后一次执行时间；</br>
-Last Activity Message: 最后一次执行信息；</br>
-&nbsp; &nbsp; &nbsp;stdout: 执行过程中输出的正确数据；</br>
-&nbsp; &nbsp; &nbsp;stderr:执行过程中发现的错误；</br>
+1. 执行成功：  
+Exec Count: 执行次数；  
+Last Activity Time: 最后一次执行时间；  
+Last Activity Message: 最后一次执行信息；  
+&nbsp; &nbsp; &nbsp;stdout: 执行过程中输出的正确数据；  
+&nbsp; &nbsp; &nbsp;stderr:执行过程中发现的错误；  
 ![](images/statusMessage.png)
-2. 执行失败：</br>
-Exec Count: 0；</br>
-Last Activity Time: N/A；</br>
-Last Activity Message: N/A / Pending；</br>
+2. 执行失败：  
+Exec Count: 0；  
+Last Activity Time: N/A；  
+Last Activity Message: N/A / Pending；  
 ![](images/start.png)
-3. 查看redis通道数据:</br>
-打开终端；</br>
-输入 redis-cli；</br>
+3. 查看redis通道数据:  
+打开终端；  
+输入 redis-cli；  
 subscribe redis channel (active collector即为 ac_[collector name], passive collector 即为 pc _[collector name]);
 
 ### 6.2 parser status
@@ -273,10 +273,10 @@ subscribe redis channel (active collector即为 ac_[collector name], passive col
 2. 查看实例内容，点击下拉按钮,即可显示所有实例：
 ![](images/showParserInstance.png)
 ![](images/parserInstanceDetail.png)
-3. 查看redis通道数据:</br>
-打开终端；</br>
-输入 redis-cli；</br>
-subscribe redis channel (parser outputChannel);</br>
+3. 查看redis通道数据:  
+打开终端；  
+输入 redis-cli；  
+subscribe redis channel (parser outputChannel);  
 
 ```
 //正确的输出格式：
@@ -313,11 +313,11 @@ history作用：保存日志，数据保存时限为7天。
 
 ### 8.2 数据采集-解析流程
 1. 添加cert；
-2. 添加collector, 根据需求选择不同的collector类型；<br>
-Active collector 输出数据的redis通道名为 ac\_[collector name]； <br>
-Passive collector 输出数据的redis通道名为 pc\_[collector name]； <br>
+2. 添加collector, 根据需求选择不同的collector类型；  
+Active collector 输出数据的redis通道名为 ac\_[collector name]；   
+Passive collector 输出数据的redis通道名为 pc\_[collector name]；   
 Agent collector 输出数据的redis通道名为 agt_[collector name]；
-3. 添加parser，InputChannel为collector数据输出通道，collector采集的数据则可以进入Parser；
+3. 添加parser，InputChannel为collector数据输出通道名，collector采集的数据则可以进入Parser；
 4. status里启动并查看结果；
 
 ### 8.3 外部脚本监控流程
@@ -326,6 +326,8 @@ Agent collector 输出数据的redis通道名为 agt_[collector name]；
 3. status里启动并查看结果；
 
 ### 8.4 状态监控流程
+1. 采集Orientsoft内部软件的日志;
+3. history进行展示；
 
 
 
