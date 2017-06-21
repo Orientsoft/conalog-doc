@@ -101,14 +101,14 @@ module.exports = config;
 6. 启动：node bin/www；
 
  2.4 常见问题
- ---------------------
+---------------------
 
 1. 每次修改配置文件后要运行 gulp go 使修改生效;
 2. 执行gulp install报错 "无法找到gulp" 时即执行 'npm install -g gulp'；
 3. 运行npm i命令后遇到缺少模块的问题时，npm install 该模块；
 
  2.5 访问网址
- ---------------------
+---------------------
 
 conalogHost:conalogFrontPort  
 如：'192.168.0.244:7527'  
