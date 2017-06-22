@@ -130,7 +130,7 @@ cert功能：通过ssh连接登陆虚拟机，随后可以执行Shell命令。
 1. 点击左上角添加按钮：
 ![](/conalog-doc/styles/images/addCert.png)
 2. 弹出添加框，填写信息：  
-   填写规范:
+   填写规范：
    Host: 192.168.0.244，（虚拟机IP地址）  
    Port：22，（端口号）  
    User：voyager，（虚拟机用户名）  
