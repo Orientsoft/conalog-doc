@@ -56,6 +56,7 @@ var config = {
 }
 module.exports = config;
 ```
+
 3. 安装模块：npm i；
 4. 执行：gulp install；
 5. 编译：gulp go；
@@ -97,14 +98,14 @@ module.exports = config;
 3. 安装模块：npm i；
 4. 执行：gulp install；
 5. 编译：gulp go；
-6. 启动：node bin/www；
+6. 启动：node bin/www；  
 
  2.4 常见问题
 ---------------------
 
-1. 每次修改代码后要运行 gulp go 使修改生效;
-2. 执行gulp install报错 "无法找到gulp" 时即执行 'npm install -g gulp'；
-3. 运行npm i命令后遇到缺少模块的问题时，npm install 该模块；
+-  每次修改代码后要运行 gulp go 使修改生效;
+-  执行gulp install报错 "无法找到gulp" 时即执行 'npm install -g gulp'；
+-  运行npm i命令后遇到缺少模块的问题时，npm install 该模块；
 
  2.5 访问网址
 ---------------------
@@ -130,7 +131,7 @@ cert功能：通过ssh连接登陆虚拟机，随后可以执行Shell命令。
 1. 点击左上角添加按钮：
 ![](/conalog-doc/styles/images/addCert.png)
 2. 弹出添加框，填写信息：  
-   填写规范：
+   填写规范：    
    Host: 192.168.0.244，（虚拟机IP地址）  
    Port：22，（端口号）  
    User：voyager，（虚拟机用户名）  
