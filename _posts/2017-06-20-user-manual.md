@@ -13,7 +13,8 @@ tag: 教程
  第一章 概述
 ====================================
 
-conalog是集数据采集，解析，状态管理，日志管理为一体的工具，可以有效的对自编制脚本进行管理和监控，也可以监控orientsoft软件组件的状态,主要模块分为五部分：cert，collector，parser，status，history。
+conalog是集数据采集，解析，状态管理，日志管理为一体的工具，可以有效的对自编制脚本进行管理和监控，
+也可以监控orientsoft软件组件的状态,主要模块分为五部分：cert，collector，parser，status，history。
 
 
  第二章 部署与安装
@@ -36,7 +37,6 @@ Redis版本：
 ``` 
 conalogHost:’192.168.0.244’;
 ```
-	
 ``` 
 //config.js配置文件
 var config = {
@@ -72,7 +72,6 @@ conalogHost:’192.168.0.244’;
 conalogFrontHost:’192.168.0.244’;
 nanomsgHost:’192.168.0.244’;
 ```
-   
 ``` 
 //config.js配置文件
 var config = {
@@ -103,7 +102,7 @@ module.exports = config;
  2.4 常见问题
 ---------------------
 
-1. 每次修改配置文件后要运行 gulp go 使修改生效;
+1. 每次修改代码后要运行 gulp go 使修改生效;
 2. 执行gulp install报错 "无法找到gulp" 时即执行 'npm install -g gulp'；
 3. 运行npm i命令后遇到缺少模块的问题时，npm install 该模块；
 
@@ -131,7 +130,7 @@ cert功能：通过ssh连接登陆虚拟机，随后可以执行Shell命令。
 1. 点击左上角添加按钮：
 ![](/conalog-doc/styles/images/addCert.png)
 2. 弹出添加框，填写信息：  
-   填写规范：</br>
+   填写规范：
    Host: 192.168.0.244，（虚拟机IP地址）  
    Port：22，（端口号）  
    User：voyager，（虚拟机用户名）  
