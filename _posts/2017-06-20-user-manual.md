@@ -23,10 +23,10 @@ conalog是集数据采集，解析，状态管理，日志管理为一体的工�
  2.1 环境要求
 ---------------------
 
-Linux版本：  
+Linux版本：^3.0  
 Node版本：6.9 (LTS)  
-Mongo版本：  
-Redis版本：
+Mongo版本：^3.0  
+Redis版本：^3.0
 
  2.2 前台
 ---------------------
@@ -113,7 +113,7 @@ module.exports = config;
 conalogHost:conalogFrontPort  
 如：'192.168.0.244:7527'  
 
-登录界面：（账号：admin 密码：admininitpass）
+登录界面：（账号：admin 初始密码：admininitpass）
 ![](/conalog-doc/styles/images/logIn.png)
 
 登录成功：
@@ -123,7 +123,7 @@ conalogHost:conalogFrontPort
  第三章 cert
 ====================================
 
-cert功能：通过ssh连接登陆虚拟机，随后可以执行Shell命令。
+cert功能：存储用于远程SSH登录的账号。Conalog可以通过ssh连接登陆虚拟机，随后可以执行Shell命令。
 
 3.1 添加
 ---------------------
@@ -168,14 +168,18 @@ cert功能：通过ssh连接登陆虚拟机，随后可以执行Shell命令。
 第四章 collector
 ====================================
 
-collector作用：实时执行命令，采集数据，分为active collector，passive collector和agent collector，active collector是根据设定的时间间隔执行一次命令，passive collector是执行一次命令并一直保持执行状态，agent collector是在Filebeat把监听的所有日志更新发送到一个统一的通道后，根据通配符规则，把同类型的日志，分发到一个通道中。
+collector作用：执行命令，采集数据。  
+分为active、passive和agent collector三种类型：  
+1. active collector是根据设定的时间间隔/每天固定时间点/单次执行命令，一般用于编写脚本主动读取日志；  
+2. passive collector是执行一次命令并一直保持执行状态，通常用于tail -F等长期执行的任务；  
+3. agent collector是从Filebeat统一的日志更新通道接收数据，根据文件通配符规则，把同类型的日志，分发到指定的通道中。  
 
  4.1 添加
 ---------------------
 
 1. active collector：  
 填写规范：  
-Name: 无要求（输出数据的redis通道名默认为 ac_name);  
+Name: 无要求（**输出数据的redis通道名默认为 ac_name**）;  
 Type:  
 &nbsp; &nbsp; &nbsp; &nbsp;interval : 每间隔一段时间执行一次命令；  
 &nbsp; &nbsp; &nbsp; &nbsp;time ：每天定点执行命令；  
@@ -190,11 +194,11 @@ Description: collector usage & source & description；
 ![](/conalog-doc/styles/images/addActiveCollector.png)
 2. passive collector：  
 填写规范：  
-Name: 无要求（输出数据的redis通道名默认为 pc_name);  
-Type:  
+Name: 无要求（**输出数据的redis通道名默认为 pc_name**);  
+Type:  
 &nbsp; &nbsp; &nbsp; &nbsp;LongScript: 执行用户指定的命令；  
-&nbsp; &nbsp; &nbsp; &nbsp;File Tail: 直接执行 tail -F 命令；  
-Command: 执行命令；  
+&nbsp; &nbsp; &nbsp; &nbsp;File Tail: 执行 tail -F 命令（快捷方式）；  
+Command: 执行命令；  
 Parameter: 参数；  
 Host: 虚拟机IP；  
 Encoding: 根据电脑系统选择对应的编码；  
@@ -206,8 +210,8 @@ Description: collector usage&source&description；
 ![](/conalog-doc/styles/images/addAgentCollector.png)
 &nbsp;3.2 弹出添加框，填写信息：  
 &nbsp;&nbsp;&nbsp;填写规范  
-&nbsp;&nbsp;&nbsp;Name: 无要求 （输出数据的redis通道名默认为 agt_name）；  
-&nbsp;&nbsp;&nbsp;Parameter: 文件名的正则表达式；  
+&nbsp;&nbsp;&nbsp;Name: 无要求 （**输出数据的redis通道名默认为 agt_name**）；  
+&nbsp;&nbsp;&nbsp;Parameter: 文件名的正则表达式；  
 &nbsp;&nbsp;&nbsp;Encoding: 根据电脑系统选择对应的编码；  
 &nbsp;&nbsp;&nbsp;Channel: redis/nanomsg;  
 &nbsp;&nbsp;&nbsp;Description: collector usage & source & description；
@@ -259,11 +263,11 @@ parser的功能：parser通过调用脚本把文件中的文本数据转换成�
 2. 弹出添加框，填写内容，所有选项均为必填：  
 填写规范：  
 Name：esb   (无要求)；  
-Path：esb.js   (parser脚本的路径)；  
+Path：esb.js   (parser脚本的路径，可以使用相对路径，默认当前目录为CONALOG_PATH/parser/)；  
 Parameter：esb=1   (脚本对应的参数)；  
-InputChannel：ac\_mobile   (输入数据通道名)；  
-OutputChannel：p_esb   (输出数据通道名)；  
-InputType：RedisChannel   (RedisChannel/NanomsgQueue);  
+InputChannel：ac\_mobile (输入数据通道名)；  
+OutputChannel：esb (输出数据通道名，**Conalog会自动给输出通道名加前缀p\_**)；  
+InputType：RedisChannel   (RedisChannel/NanomsgQueue);  
 OutputType：RedisChannel   (RedisChannel/NanomsgQueue);  
 Remark：input:... output:{...}   (parser脚本作用描述，输入输出数据格式等);
 ![](/conalog-doc/styles/images/addParserContent.png)
@@ -287,11 +291,19 @@ Remark：input:... output:{...}   (parser脚本作用描述，输入输出数据
 2. 弹出确定框，点击确认即删除，点击取消即取消删除：
 ![](/conalog-doc/styles/images/deleteParserModal.png)
 
+  5.4 Parser脚本
+---------------------
+
+1. Parser脚本用ES2015编写，默认存放在CONALOG_PATH/parser-src目录下；  
+2. 脚本编写完成后，在conalog主目录执行gulp compile-parser即可将ES2015的Parser编译成ES5代码，存放在CONALOG_PATH/parser目录下；  
+3. 请参考[Conalog Parser开发指南](https://github.com/Orientsoft/conalog/wiki/ParserDev)进行Parser的开发；  
+4. 可以用Git为每个部署项目开新分支，并提交新开发的parser到github conalog项目，分支准备好后请在conalog项目提交Pull Request。请咨询[项目管理员](https://github.com/xiedidan)获取写入权限。  
+
 
 第六章 status
 ====================================
 
-status作用：展示active collector，passive collector，agent collector以及parser执行的状态和结果。
+status作用：展示active collector，passive collector，agent collector以及parser执行的状态和结果，可以控制启停。
 
   6.1 active ／passive／agent status
 ---------------------
@@ -343,13 +355,6 @@ subscribe redis channel (active collector即为 ac_[collector name], passive col
 输入 redis-cli；  
 subscribe redis channel (parser outputChannel);  
 
-```
-//正确的输出格式：
-{
-
-}
-```
-
 
  6.2.3 删除parser实例
 1. 点击stop按钮；
@@ -361,7 +366,7 @@ subscribe redis channel (parser outputChannel);
 第七章 history
 ====================================
 
-history作用：保存日志，数据保存时限为7天。
+history作用：保存日志，默认数据保存时限为7天。
 
   7.1 查询
 ---------------------
