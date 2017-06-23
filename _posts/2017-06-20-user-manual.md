@@ -179,7 +179,7 @@ collector作用：执行命令，采集数据。
 
 1. active collector：  
 填写规范：  
-Name: 无要求（**输出数据的redis通道名默认为 ac_name**）;  
+Name: 无要求（**输出数据的redis通道名默认为 ac_name**）;  
 Type:  
 &nbsp; &nbsp; &nbsp; &nbsp;interval : 每间隔一段时间执行一次命令；  
 &nbsp; &nbsp; &nbsp; &nbsp;time ：每天定点执行命令；  
@@ -194,7 +194,7 @@ Description: collector usage & source & description；
 ![](/conalog-doc/styles/images/addActiveCollector.png)
 2. passive collector：  
 填写规范：  
-Name: 无要求（**输出数据的redis通道名默认为 pc_name**);  
+Name: 无要求（**输出数据的redis通道名默认为 pc_name**);  
 Type:  
 &nbsp; &nbsp; &nbsp; &nbsp;LongScript: 执行用户指定的命令；  
 &nbsp; &nbsp; &nbsp; &nbsp;File Tail: 执行 tail -F 命令（快捷方式）；  
@@ -210,7 +210,7 @@ Description: collector usage&source&description；
 ![](/conalog-doc/styles/images/addAgentCollector.png)
 &nbsp;3.2 弹出添加框，填写信息：  
 &nbsp;&nbsp;&nbsp;填写规范  
-&nbsp;&nbsp;&nbsp;Name: 无要求 （**输出数据的redis通道名默认为 agt_name**）；  
+&nbsp;&nbsp;&nbsp;Name: 无要求 （**输出数据的redis通道名默认为 agt_name**）；  
 &nbsp;&nbsp;&nbsp;Parameter: 文件名的正则表达式；  
 &nbsp;&nbsp;&nbsp;Encoding: 根据电脑系统选择对应的编码；  
 &nbsp;&nbsp;&nbsp;Channel: redis/nanomsg;  
