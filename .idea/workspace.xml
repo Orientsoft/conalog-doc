@@ -2,30 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ff1252d9-af14-4c06-b20d-b86a12cd27b2" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/images/deleteActiveCollector.png" afterPath="$PROJECT_DIR$/images/deleteActiveCollector.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/images/deletePassiveCollector.png" afterPath="$PROJECT_DIR$/images/deletePassiveCollector.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/images/editActiveCollector.png" afterPath="$PROJECT_DIR$/images/editActiveCollector.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/images/editActiveCollectorContent.png" afterPath="$PROJECT_DIR$/images/editActiveCollectorContent.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/images/editPassiveCollector.png" afterPath="$PROJECT_DIR$/images/editPassiveCollector.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/images/editPassiveCollectorContent.png" afterPath="$PROJECT_DIR$/images/editPassiveCollectorContent.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/styles/images/addParserContent.png" afterPath="$PROJECT_DIR$/styles/images/addParserContent.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/styles/images/addParserSuccess.png" afterPath="$PROJECT_DIR$/styles/images/addParserSuccess.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/styles/images/deleteActiveCollector.png" afterPath="$PROJECT_DIR$/styles/images/deleteActiveCollector.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/styles/images/deleteParserInstance.png" afterPath="$PROJECT_DIR$/styles/images/deleteParserInstance.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/styles/images/deletePassiveCollector.png" afterPath="$PROJECT_DIR$/styles/images/deletePassiveCollector.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/styles/images/editActiveCollector.png" afterPath="$PROJECT_DIR$/styles/images/editActiveCollector.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/styles/images/editActiveCollectorContent.png" afterPath="$PROJECT_DIR$/styles/images/editActiveCollectorContent.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/styles/images/editParser.png" afterPath="$PROJECT_DIR$/styles/images/editParser.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/styles/images/editParserModal.png" afterPath="$PROJECT_DIR$/styles/images/editParserModal.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/styles/images/editPassiveCollector.png" afterPath="$PROJECT_DIR$/styles/images/editPassiveCollector.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/styles/images/editPassiveCollectorContent.png" afterPath="$PROJECT_DIR$/styles/images/editPassiveCollectorContent.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/styles/images/instanceNum.png" afterPath="$PROJECT_DIR$/styles/images/instanceNum.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/styles/images/parserInstanceDetail.png" afterPath="$PROJECT_DIR$/styles/images/parserInstanceDetail.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/styles/images/showParserInstance.png" afterPath="$PROJECT_DIR$/styles/images/showParserInstance.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/styles/images/startParserInstance.png" afterPath="$PROJECT_DIR$/styles/images/startParserInstance.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/styles/images/startParserInstanceModal.png" afterPath="$PROJECT_DIR$/styles/images/startParserInstanceModal.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/styles/images/statusMessage.png" afterPath="$PROJECT_DIR$/styles/images/statusMessage.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_posts/2017-06-20-user-manual.md" afterPath="$PROJECT_DIR$/_posts/2017-06-20-user-manual.md" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -50,8 +26,8 @@
       <file leaf-file-name="2017-06-20-user-manual.md" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/_posts/2017-06-20-user-manual.md">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
-              <caret line="28" column="12" lean-forward="true" selection-start-line="28" selection-start-column="12" selection-end-line="28" selection-end-column="12" />
+            <state relative-caret-position="405">
+              <caret line="199" column="59" lean-forward="false" selection-start-line="199" selection-start-column="59" selection-end-line="199" selection-end-column="59" />
               <folding />
             </state>
           </provider>
@@ -267,12 +243,12 @@
       <workItem from="1498033577181" duration="57000" />
       <workItem from="1498036596915" duration="844000" />
       <workItem from="1498114082479" duration="439000" />
-      <workItem from="1501661311146" duration="2942000" />
+      <workItem from="1501661311146" duration="3355000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="4910000" />
+    <option name="totallyTimeSpent" value="5323000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="51" y="58" width="1280" height="704" extended-state="0" />
@@ -593,8 +569,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/_posts/2017-06-20-user-manual.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="28" column="12" lean-forward="true" selection-start-line="28" selection-start-column="12" selection-end-line="28" selection-end-column="12" />
+        <state relative-caret-position="405">
+          <caret line="199" column="59" lean-forward="false" selection-start-line="199" selection-start-column="59" selection-end-line="199" selection-end-column="59" />
           <folding />
         </state>
       </provider>
