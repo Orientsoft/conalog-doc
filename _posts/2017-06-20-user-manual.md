@@ -221,11 +221,11 @@ Description: collector usage&source&description；
 ---------------------
 
 1. active collector：  
-   勾选要修改的项，再点击edit按钮，在页面上方即可出现对应的信息，修改之后保存点击save按钮，不保存点击clear按钮；
+   点击edit按钮，即会弹出修改框，修改之后保存点击确定按钮，不保存点击取消按钮；
 ![](/conalog-doc/styles/images/editActiveCollector.png)
 ![](/conalog-doc/styles/images/editActiveCollectorContent.png)
 2. passive collector：  
-   勾选要修改的项，再点击edit按钮，在页面上方即可出现对应的信息，修改之后保存点击save按钮，不保存点击clear按钮；
+   点击edit按钮，即会弹出修改框，修改之后保存点击确定按钮，不保存点击取消按钮；
 ![](/conalog-doc/styles/images/editPassiveCollector.png)
 ![](/conalog-doc/styles/images/editPassiveCollectorContent.png)
 3. agent collector:  
@@ -237,17 +237,28 @@ Description: collector usage&source&description；
 ---------------------
 
 1. active collector：  
-   勾选要删除的项，再点击delete按钮，弹出确定框，删除点击确定，不删除点击取消；
-![](/conalog-doc/styles/images/editActiveCollector.png)
+   点击delete按钮，弹出确定框，删除点击确定，不删除点击取消；
 ![](/conalog-doc/styles/images/deleteActiveCollector.png)
+![](/conalog-doc/styles/images/deleteActiveCollectorModal.png)
 2. passive collector：  
-   勾选要删除的项，再点击delete按钮，弹出确定框，删除点击确定，不删除点击取消；
-![](/conalog-doc/styles/images/editPassiveCollector.png)
+   点击delete按钮，弹出确定框，删除点击确定，不删除点击取消；
 ![](/conalog-doc/styles/images/deletePassiveCollector.png)
+![](/conalog-doc/styles/images/deletePassiveCollectorModal.png)
 3. agent collector:  
    点击delete按钮，弹出确定框，删除点击确定，不删除点击取消；
 ![](/conalog-doc/styles/images/deleteAgentCollector.png)
 ![](/conalog-doc/styles/images/deleteAgentCollectorModal.png)
+
+  4.4 查找
+---------------------
+
+active/passive/agent collector 的查找方式均相同，可以通过 name 和 parameter 来查找，默认指定为name；
+1. name
+![](/conalog-doc/styles/images/searchByName.png)
+![](/conalog-doc/styles/images/searchByNameContent.png)
+2. parameter
+![](/conalog-doc/styles/images/searchByParam.png)
+![](/conalog-doc/styles/images/searchByParamContent.png)
 
 
 第五章 parser
@@ -329,7 +340,12 @@ Exec Count: 0；
 Last Activity Time: N/A；  
 Last Activity Message: N/A / Pending；  
 ![](/conalog-doc/styles/images/start.png)
-3. 查看redis通道数据:  
+3. 查看Last Activity Message
+执行成功后，点击加号按钮，弹出消息框；
+![](/conalog-doc/styles/images/statusMessage.png)
+![](/conalog-doc/styles/images/messageBtn.png)
+![](/conalog-doc/styles/images/statusMessageContent.png)
+4. 查看redis通道数据:
 打开终端；  
 输入 redis-cli；  
 subscribe redis channel (active collector即为 ac_[collector name], passive collector 即为 pc _[collector name]);
@@ -350,7 +366,11 @@ subscribe redis channel (active collector即为 ac_[collector name], passive col
 2. 查看实例内容，点击下拉按钮,即可显示所有实例：
 ![](/conalog-doc/styles/images/showParserInstance.png)
 ![](/conalog-doc/styles/images/parserInstanceDetail.png)
-3. 查看redis通道数据:  
+3. 查看 Last Activity Message：
+点击加号按钮，弹出消息框：
+![](/conalog-doc/styles/images/ParserMessage.png)
+![](/conalog-doc/styles/images/ParserMessageContent.png)
+4. 查看redis通道数据:
 打开终端；  
 输入 redis-cli；  
 subscribe redis channel (parser outputChannel);  
